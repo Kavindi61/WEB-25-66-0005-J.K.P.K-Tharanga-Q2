@@ -1,0 +1,24 @@
+﻿@page
+@model StudentMGT.Pages.Courses.DeleteModel
+<div class="container container text-center mt-5">
+    <h2>DELETE COURSE</h2>
+    <br />
+
+    <p class="fs-5">Are you sure you want to delete <strong>@Model.Course.Name</strong>?</p>
+
+    <form method="post" class="d-inline-flex justify-content-center gap-2">
+        <input type="hidden" asp-for="Course.CourseID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-secondary" asp-page="./Courses">Cancel</a>
+    </form>
+
+</div>
+@* <h2 >Delete Course</h2>
+
+<p>Are you sure you want to delete <strong>@Model.Course.Name</strong>?</p>
+
+<form method="post justify-content-center">
+    <input type="hidden" asp-for="Course.CourseID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-secondary" asp-page="./Courses">Cancel</a>
+</form> *@

@@ -1,0 +1,14 @@
+﻿@page
+@model StudentMGT.Pages.Students.DeleteModel
+<div class="container container text-center mt-5">
+<h2>DELETE STUDENT</h2>
+<br />
+
+<p class="fs-5">Are you sure you want to delete <strong>@Model.Student.Name</strong>?</p>
+
+    <form method="post" class="d-inline-flex justify-content-center gap-2">
+    <input type="hidden" asp-for="Student.StudentID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-secondary" asp-page="./Students">Cancel</a>
+</form>
+</div>

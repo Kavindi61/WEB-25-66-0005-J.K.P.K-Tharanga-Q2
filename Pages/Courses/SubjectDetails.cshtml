@@ -1,0 +1,59 @@
+﻿
+@page "{id:int}"
+@model StudentMGT.Pages.Courses.SubjectDetailsModel
+<style>
+    .card{
+        background: #46a5e05f;
+    }
+
+    .custom{
+        background: #46a5e05f;
+    }
+    
+
+</style>
+
+<h2>Course Details</h2>
+<br />
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Course.Name</h4>
+            <p><strong>Lecturer:</strong> @Model.Course.LecturerName</p>
+        </div>
+    </div>
+    
+    <h6 class="mb-5 mt-1">ENROLLED STUDENTS</h6>
+    @if (Model.Students.Any())
+    {
+        <table class="table table-bordered table-striped">
+            <thead class="custom">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td>@student.StudentID</td>
+                        <td>@student.Name</td>
+                        <td>@student.City</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No students enrolled in this course.</p>
+    }
+}

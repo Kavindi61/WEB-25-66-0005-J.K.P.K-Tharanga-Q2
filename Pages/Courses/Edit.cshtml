@@ -1,0 +1,20 @@
+﻿@page
+@model StudentMGT.Pages.Courses.EditModel
+<h2>Edit Course</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Course.CourseID" />
+
+    <div class="mb-3">
+        <label asp-for="Course.Name" class="form-label"></label>
+        <input asp-for="Course.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Course.LecturerName" class="form-label"></label>
+        <input asp-for="Course.LecturerName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-secondary" asp-page="./Courses">Cancel</a>
+</form>

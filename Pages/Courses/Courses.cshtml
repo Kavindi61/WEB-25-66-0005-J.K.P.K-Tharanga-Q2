@@ -1,0 +1,57 @@
+﻿@page
+@model StudentMGT.Pages.Courses.CoursesModel
+<style>
+    .btn1 {
+        background: #1974ace4;
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn2 {
+        background: #46a5e05f;
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn3 {
+        color: darkblue;
+        text-decoration: underline;
+    }
+</style>
+<h4>COURSES</h4>
+<br />
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="SearchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search by course or lecturer" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a class="btn btn-secondary" asp-page="./Courses">Clear</a>
+    </div>
+</form>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+            <th>Lecturer</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>@course.CourseID</td>
+                <td>@course.Name</td>
+                <td>@course.LecturerName</td>
+                <td>
+                    <a class="btn1  btn-sm" asp-page="./SubjectDetails" asp-route-id="@course.CourseID">View</a>
+                    <a class="btn2  btn-sm" asp-page="./Edit" asp-route-id="@course.CourseID">Edit</a>
+                    <a class="btn3  btn-sm" asp-page="./Delete" asp-route-id="@course.CourseID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
